@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* 1. Importamos as Fontes do Google: Inter, VT323 (Pixel) e Space Grotesk (Moderna) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@700&family=VT323&display=swap');
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-details: var(--details);
+  
+  /* 2. Registamos as fontes no Tailwind v4 */
+  --font-sans: 'Inter', sans-serif;
+  --font-pixel: 'VT323', monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+@layer base {
+  /* ================== LIGHT MODE ================== */
+  :root[data-theme="light"][data-profile="dev"] {
+    --primary: #FBF8EC;
+    --secondary: #D47A8D; /* Escureci o rosa para melhorar muito a leitura! */
+    --details: #9FAA75;
+  }
+  :root[data-theme="light"][data-profile="data"] {
+    --primary: #9FAA75;
+    --secondary: #FBF8EC;
+    --details: #FFD0DA;
+  }
+
+  /* ================== DARK MODE ================== */
+  :root[data-theme="dark"][data-profile="dev"] {
+    --primary: #5D0F15;
+    --secondary: #A5B9C6;
+    --details: #FFFFCD;
+  }
+  :root[data-theme="dark"][data-profile="data"] {
+    --primary: #FFFFCD;
+    --secondary: #5D0F15;
+    --details: #A5B9C6;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+}
+
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
